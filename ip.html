@@ -43,19 +43,21 @@
 
 
         function showPopup() {
-            console.log('showPopup is running...');
-            var popup = document.getElementById("popup");
+            //console.log('showPopup is running...');
+            //var popup = document.getElementById("popup");
             var button = document.getElementById("copybutton");
+            var origText = button.innerHTML;
             var origColor = button.style.backgroundColor;
             
             button.innerHTML = "copied!";
             button.style.backgroundColor = "green";
-            popup.classList.remove("hidden");
+            //popup.classList.remove("hidden");
             setTimeout(function() {
-                popup.classList.add("hidden");
+                //popup.classList.add("hidden");
                 button.style.backgroundColor = origColor;
-                console.log('removing shop popup...');
-            }, 4000);
+                button.innerHTML = origText;
+                //console.log('removing shop popup...');
+            }, 2000);
         }
 
         
