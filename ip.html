@@ -18,8 +18,8 @@
         }
 
         #copybutton img {
-            width: 24px; /* Adjust the size as needed */
-            height: 24px;
+            width: 12px; /* Adjust the size as needed */
+            height: 12px;
         }
     </style>
 </head>
@@ -51,7 +51,7 @@
             //console.log('showPopup is running...');
             //var popup = document.getElementById("popup");
             var button = document.getElementById("copybutton");
-            var origText = button.innerHTML;
+            //var origText = button.innerHTML;
             var origColor = button.style.backgroundColor;
             
             button.innerHTML = "copied!";
@@ -60,7 +60,7 @@
             setTimeout(function() {
                 //popup.classList.add("hidden");
                 button.style.backgroundColor = origColor;
-                button.innerHTML = origText;
+                //button.innerHTML = origText;
                 //console.log('removing shop popup...');
             }, 2000);
         }
