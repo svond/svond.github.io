@@ -26,6 +26,7 @@
 
         async function getLocalIP() {
             const ipDisplay = document.getElementById('localip');
+            ipDisplay.textContent = 'Lade private IP Adresse...';
             try {
                 const rtc = new RTCPeerConnection({iceServers: []});
                 rtc.createDataChannel('');
