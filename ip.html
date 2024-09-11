@@ -6,11 +6,9 @@
     <title>IP-Adresse anzeigen</title>
 </head>
 <body>
-    <h1>Deine öffentliche IP-Adresse</h1>
+    <h1>Your public IP</h1>
     <p id="ip">Lade öffentliche IP-Adresse...</p>
-
-    <h1>Deine lokale IP-Adresse</h1>
-    <p id="localip">Lade ...</p>
+    (vi api.ipify.org)
 
     
     <script>
@@ -24,34 +22,8 @@
             }
         }
 
-        async function getLocalIP() {
-            const ipDisplay = document.getElementById('localip');
-            ipDisplay.textContent = 'Lade lokale IP Adresse...';
-            try {
-                const rtc = new RTCPeerConnection({iceServers: []});
-                rtc.createDataChannel('');
-                const offer = await rtc.createOffer();
-                await rtc.setLocalDescription(offer);
-
-                rtc.onicecandidate = (event) => {
-                    if (event && event.candidate && event.candidate.candidate) {
-                        const candidate = event.candidate.candidate;
-                        const ipRegex = /([0-9]{1,3}\.){3}[0-9]{1,3}/;
-                        const ip = ipRegex.exec(candidate);
-                        if (ip) {
-                            ipDisplay.textContent = ip[0];
-                            rtc.close();
-                        }
-                    }
-                };
-            } catch (error) {
-                ipDisplay.textContent = 'Fehler beim Laden der IP-Adresse';
-                console.error('Fehler beim Ermitteln der IP-Adresse:', error);
-            }
-        }
 
         fetchIP();
-        getLocalIP();
         
     </script>
 </body>
