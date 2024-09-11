@@ -61,10 +61,12 @@
 
 
         function showPopup() {
+            console.log('showPopup is running...');
             var popup = document.getElementById("copypopup");
             popup.classList.add("show");
             setTimeout(function() {
                 popup.classList.remove("show");
+                console.log('removing shop popup...');
             }, 2000);
         }
 
