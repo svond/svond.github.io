@@ -34,10 +34,10 @@
          #infoPopup {
             display: none;
             position: absolute;
-            padding: 0px;
+            padding: 5px;
             background-color: LightBlue;
             border: 1px solid #ccc;
-            box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -48,7 +48,7 @@
         <p id="ipaddress">trying to get public IP...</p>
         <button id="copyButton" onclick="copyToClipboard()"><img src="copyicon.png" alt="Copy to Clipboard"></button>
         &ensp;
-        <button id="infoButton" onmouseover="showInfoPopup()">i</button>
+        <button id="infoButton" onmouseover="showInfoPopup()" onmouseout="hideInfoPopup()">i</button>
     </div>
 
     <div id="infoPopup">
@@ -74,9 +74,10 @@
             popup.style.left = event.clientX + 'px';
             popup.style.top = event.clientY + 'px';
 
-            setTimeout(function() {
-                popup.style.display = 'none';                
-            }, 2000);
+
+        function hideInfoPopup() {
+            var popup = document.getElementById('infoPopup');
+            popup.style.display = 'none';
         }
 
         function showCopyPopup() {
