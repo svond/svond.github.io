@@ -38,9 +38,12 @@
     <div class="container">
         <p id="ipaddress">trying to get public IP...</p>
         <button id="copyButton" onclick="copyToClipboard()"><img src="copyicon.png" alt="Copy to Clipboard"></button>
-        <p id="popup" class="hidden">successfully copied to clipboard</p>
+        <button id="infoButton" onclick="showInfoPopup()">i</button>
     </div>
-    <font size="1">(via api.ipify.org)</font>
+
+    <div id="infoPopup">
+        <p><font size="1">(via api.ipify.org)</font></p>
+    </div>
 
 
     <script>
@@ -56,6 +59,16 @@
             });
         }
 
+        function showInfoPopup() {
+            var popup = document.getElementById('infoPopup');
+            popup.style.display = 'block';
+            popup.style.left = event.clientX + 'px';
+            popup.style.top = event.clientY + 'px';
+
+            setTimeout(function() {
+                popup.style.display = 'none';                
+            }, 2000);
+        }
 
         function showPopup() {
             //console.log('showPopup is running...');
