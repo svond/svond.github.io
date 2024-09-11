@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IP-Adresse anzeigen</title>
+    <style>
+       .container {
+           display: flex;
+           align-items: center;
+       }
+       .container p {
+           margin-right: 10px;
+       }
+    </style>
 </head>
 <body>
     <h1>Your public IP</h1>
-    <p id="ip">trying to get public IP...</p>
-    <font size="2">(via api.ipify.org)</font>
+    <div class="container">
+        <p id="ip">trying to get public IP...</p>
+        <button onclick="copyToClipboard()">copy</button>
+    </div>div>
+    <font size="1">(via api.ipify.org)</font>
 
-    
+
     <script>
+
+        function copyToClipboard() {
+            const text = document.getElementById('text').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('copied to clipboard!');
+            }).catch(err => {
+                console.error('error while copying to clipboard: ', err);
+            });
+        }
+        
         async function fetchIP() {
             try {
                 const response = await fetch('https://api.ipify.org?format=json');
