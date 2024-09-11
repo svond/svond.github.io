@@ -69,7 +69,8 @@
             //popup.classList.remove("hidden");
             setTimeout(function() {
                 //popup.classList.add("hidden");
-                button.style.backgroundColor = origColor;
+                // button.style.backgroundColor = origColor;
+                button.style.backgroundColor = copyButtonOrigBackgroundColor;
                 //button.innerHTML = origText;
                 //console.log('removing shop popup...');
             }, 250);
@@ -86,6 +87,7 @@
             }
         }
 
+        var copyButtonOrigBackgroundColor = document.getElementById("copyButton").style.backgroundColor;
         fetchIP();
         
     </script>
