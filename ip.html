@@ -52,7 +52,7 @@
     </div>
 
     <div id="infoPopup">
-        <p><font size="1">(via api.ipify.org)</font></p>
+        <p>(via api.ipify.org)</p>
     </div>
 
 
@@ -82,15 +82,11 @@
 
         function showPopup() {
             //console.log('showPopup is running...');
-            //var popup = document.getElementById("popup");
             var button = document.getElementById("copyButton");
             //var origText = button.innerHTML;
-                        
             //button.innerHTML = "copied!";
             button.style.backgroundColor = "green";
-            //popup.classList.remove("hidden");
             setTimeout(function() {
-                //popup.classList.add("hidden");
                 button.style.backgroundColor = copyButtonOrigBackgroundColor;
                 //button.innerHTML = origText;
                 //console.log('removing shop popup...');
