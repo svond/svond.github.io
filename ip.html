@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP-Adresse anzeigen</title>
+</head>
+<body>
+    <h1>Deine IP-Adresse</h1>
+    <p id="ip">Lade IP-Adresse...</p>
+
+    <script>
+        async function fetchIP() {
+            try {
+                const response = await fetch('https://api.ipify.org?format=json');
+                const data = await response.json();
+                document.getElementById('ip').textContent = data.ip;
+            } catch (error) {
+                document.getElementById('ip').textContent = 'Fehler beim Laden der IP-Adresse';
+            }
+        }
+
+        fetchIP();
+    </script>
+</body>
+</html>
