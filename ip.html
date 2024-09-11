@@ -52,6 +52,7 @@
             const text = document.getElementById('ipaddress').textContent;
             navigator.clipboard.writeText(text).then(() => {
                 // alert('copied to clipboard!');
+                console.log('copied to clipboard');
                 showPopup();
             }).catch(err => {
                 console.error('error while copying to clipboard: ', err);
