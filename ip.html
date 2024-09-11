@@ -7,10 +7,10 @@
 </head>
 <body>
     <h1>Deine öffentliche IP-Adresse</h1>
-    <p id="ip">Lade IP-Adresse...</p>
+    <p id="ip">Lade öffentliche IP-Adresse...</p>
 
     <h1>Deine lokale IP-Adresse</h1>
-    <p id="localip">Lade IP-Adresse...</p>
+    <p id="localip">Lade ...</p>
 
     
     <script>
@@ -26,7 +26,7 @@
 
         async function getLocalIP() {
             const ipDisplay = document.getElementById('localip');
-            ipDisplay.textContent = 'Lade private IP Adresse...';
+            ipDisplay.textContent = 'Lade lokale IP Adresse...';
             try {
                 const rtc = new RTCPeerConnection({iceServers: []});
                 rtc.createDataChannel('');
