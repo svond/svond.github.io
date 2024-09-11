@@ -34,10 +34,10 @@
          #infoPopup {
             display: none;
             position: absolute;
-            padding: 5px;
+            padding: 0px;
             background-color: teal;
             border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -61,9 +61,8 @@
         function copyToClipboard() {
             const text = document.getElementById('ipaddress').textContent;
             navigator.clipboard.writeText(text).then(() => {
-                // alert('copied to clipboard!');
                 console.log('copied to clipboard');
-                showPopup();
+                showCopyPopup();
             }).catch(err => {
                 console.error('error while copying to clipboard: ', err);
             });
@@ -80,8 +79,8 @@
             }, 2000);
         }
 
-        function showPopup() {
-            //console.log('showPopup is running...');
+        function showCopyPopup() {
+            //console.log('showCopyPopup is running...');
             var button = document.getElementById("copyButton");
             //var origText = button.innerHTML;
             //button.innerHTML = "copied!";
@@ -89,7 +88,7 @@
             setTimeout(function() {
                 button.style.backgroundColor = copyButtonOrigBackgroundColor;
                 //button.innerHTML = origText;
-                //console.log('removing shop popup...');
+                //console.log('removing copyPopup...');
             }, 150);
         }
 
