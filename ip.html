@@ -22,7 +22,7 @@
     <h1>Your public IP</h1>
     <div class="container">
         <p id="ipaddress">trying to get public IP...</p>
-        <button onclick="copyToClipboard()">copy</button>
+        <button id="copybutton" onclick="copyToClipboard()">copy</button>
         <p id="popup" class="hidden">successfully copied to clipboard</p>
     </div>
     <font size="1">(via api.ipify.org)</font>
@@ -45,9 +45,15 @@
         function showPopup() {
             console.log('showPopup is running...');
             var popup = document.getElementById("popup");
+            var button = document.getElementById("copybutton");
+            var origColor = button.style.backgroundColor;
+            
+            button.innerHTML = "copied!";
+            button.style.backgroundColor = "green";
             popup.classList.remove("hidden");
             setTimeout(function() {
                 popup.classList.add("hidden");
+                button.style.backgroundColor = origColor;
                 console.log('removing shop popup...');
             }, 4000);
         }
