@@ -7,8 +7,8 @@
 </head>
 <body>
     <h1>Your public IP</h1>
-    <p id="ip">Lade öffentliche IP-Adresse...</p>
-    (vi api.ipify.org)
+    <p id="ip">trying to get public IP...</p>
+    <font size="2">(via api.ipify.org)</font>font>
 
     
     <script>
@@ -18,10 +18,9 @@
                 const data = await response.json();
                 document.getElementById('ip').textContent = data.ip;
             } catch (error) {
-                document.getElementById('ip').textContent = 'Fehler beim Laden der IP-Adresse';
+                document.getElementById('ip').textContent = 'Failed to get IP address!';
             }
         }
-
 
         fetchIP();
         
